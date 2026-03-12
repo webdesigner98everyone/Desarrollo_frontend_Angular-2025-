@@ -8,6 +8,8 @@ import {EjemploComponent} from './ejemplo.component';
 import { Ejemplo2Component } from './ejemplo2/ejemplo2.component';
 import { Ejemplo3Component } from './ejemplos/ejemplo3/ejemplo3.component';
 import { BasicosComponent } from './ejemplos/basicos/basicos.component';
+import { FormaateaFechaPipe } from './utilidades/formaatea-fecha.pipe';
+import { FormateaNumerosPipe } from './utilidades/formatea-numeros.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { BasicosComponent } from './ejemplos/basicos/basicos.component';
     EjemploComponent,
     Ejemplo2Component,
     Ejemplo3Component,
-    BasicosComponent
+    BasicosComponent,
+    FormaateaFechaPipe,
+    FormateaNumerosPipe
   ],
   imports: [
     BrowserModule,

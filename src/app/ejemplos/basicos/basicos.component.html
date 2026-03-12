@@ -9,64 +9,82 @@
 </ul>
 <hr>
 <h4>CONDICIONALES</h4>
-    <p *ngIf="edad>=18; else edadElse">Es mayor de edad</p>
-         <ng-template #edadElse>
-            <p>No es mayor de edad, es muy Joven</p>
-         </ng-template>
+<p *ngIf="edad>=18; else edadElse">Es mayor de edad</p>
+<ng-template #edadElse>
+    <p>No es mayor de edad, es muy Joven</p>
+</ng-template>
 <hr>
 <h4>OPERADOR TERNARIO</h4>
-    <p>{{(edad>=18 )? 'Ternario si es mayor':'Ternario no es mayor'}}</p>
+<p>{{(edad>=18 )? 'Ternario si es mayor':'Ternario no es mayor'}}</p>
 <hr>
 <h4>Switch Case</h4>
-    <div [ngSwitch]="numero">
-        <p *ngSwitchCase="12">Es 12</p>
-        <p *ngSwitchCase="13">Es 13</p>
-        <p *ngSwitchCase="14">Es 14</p>
-        <p *ngSwitchCase="15">Es 15</p>
-        <p *ngSwitchDefault>No es ninguno</p>
-    </div>
+<div [ngSwitch]="numero">
+    <p *ngSwitchCase="12">Es 12</p>
+    <p *ngSwitchCase="13">Es 13</p>
+    <p *ngSwitchCase="14">Es 14</p>
+    <p *ngSwitchCase="15">Es 15</p>
+    <p *ngSwitchDefault>No es ninguno</p>
+</div>
 <hr>
 <h4>Ng-Container</h4>
-    <ng-container *ngIf="edad>=18">
-        Se cumple la condicion
-    </ng-container>
+<ng-container *ngIf="edad>=18">
+    Se cumple la condicion
+</ng-container>
 <hr>
 <h4>Ng-For</h4>
-    <ul>
-        <li *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
-            {{item}}
-        </li>
-    </ul>
-    
-    <ul>
-        <li *ngFor="let item of [1,2,3,4,5,6,7,8,9]; let i = index">
-            Posicion: {{i}} - Número: {{item}}
-        </li>
-    </ul>
+<ul>
+    <li *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+        {{item}}
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let item of [1,2,3,4,5,6,7,8,9]; let i = index">
+        Posicion: {{i}} - Número: {{item}}
+    </li>
+</ul>
 <hr>
 <h4>Recorrer Arreglo Ordenado E Identificar Primer y Ultimo Item del Array</h4>
-    <ul>
-        <li *ngFor="let pais of paises; let i=index; first as primero; last as ultimo">
-            Posicion: {{i}} - Nombre Pais: {{pais.nombre}} - Nombre Dominio: {{pais.dominio}} 
-                <span *ngIf="primero">Este es el primer indice</span> 
-                <span *ngIf="ultimo">Este es el ultimo indice</span>
-        </li>
-    </ul>
+<ul>
+    <li
+        *ngFor="let pais of paises; let i=index; first as primero; last as ultimo">
+        Posicion: {{i}} - Nombre Pais: {{pais.nombre}} - Nombre Dominio:
+        {{pais.dominio}}
+        <span *ngIf="primero">Este es el primer indice</span>
+        <span *ngIf="ultimo">Este es el ultimo indice</span>
+    </li>
+</ul>
 <hr>
 <h4>Ng-Template</h4>
-    <ul>
-        <ng-template ngFor let-pais [ngForOf]="paises" let-i="index">
-            <li>
-                Posicion: {{i}} - Nombre Pais: {{pais.nombre}} - Nombre Dominio: {{pais.dominio}} 
-            </li>
-        </ng-template>
-    </ul>
+<ul>
+    <ng-template ngFor let-pais [ngForOf]="paises" let-i="index">
+        <li>
+            Posicion: {{i}} - Nombre Pais: {{pais.nombre}} - Nombre Dominio:
+            {{pais.dominio}}
+        </li>
+    </ng-template>
+</ul>
 <hr>
 <h4>Odd y Even</h4>
-    <div *ngFor="let pais of paises; let impar = odd; let par = even;"[ngClass]="{azul:par, verde:impar}">
-        <p>
-            {{pais.nombre}} ({{pais.dominio}})
-            <span *ngIf="impar">Es impar</span>
-            <span *ngIf="par">Es par</span>
-        </p>
-    </div>
+<div *ngFor="let pais of paises; let impar = odd; let par = even;"
+    [ngClass]="{azul:par, verde:impar}">
+    <p>
+        {{pais.nombre}} ({{pais.dominio}})
+        <span *ngIf="impar">Es impar</span>
+        <span *ngIf="par">Es par</span>
+    </p>
+</div>
+<hr>
+<h4>Pipes o Tuberias - Disponibles En Angular</h4>
+<ul>
+    <li><p>{{texto | lowercase}}: Texto todo en minuscula</p></li>
+    <li><p>{{texto | uppercase}}: Texto todo en mayuscula</p></li>
+    <li><p>{{texto | slice:0:100}}...: Mostrar Texto desde el caracter 0 hasta el caracter 100</p></li>
+    <li><p>{{cantidad | currency}}: Formateo estandar</p></li>
+    <li><p>{{cantidad | currency: 'EUR':'E'}}: Formateo en Euro</p></li>
+    <li><p>{{cantidad | currency: 'USD':'$'}}: Formateo en Dolar</p></li>
+    <li><p>{{fecha | date}}: Formateo estandar</p></li>
+    <li><p>{{fecha | date: 'dd/MM/yyyy'}}: Formateo fecha en Dia/mes/año</p></li>
+    <li><p>{{fecha | formaateaFecha}}: Formateo fecha con pipe personalizado</p></li>
+    <li><p>{{cantidad | formateaNumeros}}: Formateo numero con pipe personalizado para moneda Cop</p></li>
+</ul>
