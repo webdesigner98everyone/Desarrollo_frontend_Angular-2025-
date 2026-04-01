@@ -1,0 +1,17 @@
+<h3>data-binding works!</h3>
+<p>
+    Ejemplo Boto
+    <br>
+    <br>
+    <button [disabled]="disabled" (click)="cambiar()">Presionar</button>
+</p>
+<hr>
+    <div [style]="'background-color:'+color+';'">Hola</div>
+    <p>
+        {{text}}
+    </p>
+    <p [innerHTML]="text"></p>
+<hr>
+<div>
+    <img [src]="'../../../assets/Images/'+img" [width]="ancho" [height]="alto">
+</div>
